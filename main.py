@@ -42,3 +42,27 @@ class deriveGMe(Scene):
         self.play(TransformMatchingTex(equate, solveForGMe))
         self.wait(1)
 
+class setup(ThreeDScene):
+    def construct(self):
+        
+        # Create a 3D cube
+        rod = Cylinder(radius = 0.25, height = 8, direction=DOWN)
+        brass1 = Sphere(radius = 0.75)
+        brass2 = Sphere(radius = 0.75)
+        brass1.next_to(rod, DOWN, buff=0)
+        brass2.next_to(rod, UP, buff=0)
+        
+        # Set up the camera orientation
+        self.set_camera_orientation(phi=0 * DEGREES, theta=0 * DEGREES)
+
+        # Set the focal length to zoom out (higher focal length = zoom out)
+        self.camera.focal_distance = 10
+
+                
+        self.play(Create(rod))
+        self.wait(1)
+        self.play(Create(brass1))
+        self.wait(1)
+        self.play(Create(brass2))
+        # self.play(Rotate(rod, angle=PI/4, axis=UP))
+        self.wait()
