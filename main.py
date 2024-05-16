@@ -3,8 +3,6 @@ from manim import *
 config.media_width = "100%"
 config.verbosity = "WARNING"
 
-
-
 # animation 1
 class displayNewtonsLaws(Scene):
     def construct(self):
