@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3529212410_3804646657_223132457.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_784179552_3733783944.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_1003452292_927483390.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_784179552_2900467699.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_3175362767_2396197708.mp4'

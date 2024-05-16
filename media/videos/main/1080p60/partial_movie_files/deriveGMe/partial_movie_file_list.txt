@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3529212410_2814694597_223132457.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_784179552_4141374180.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_2862707727_3828986163.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_784179552_1427998818.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_1075664470_2363806914.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_2919340033_3632999845.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_3802076497_648508397.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_784179552_4035937283.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_2421910965_1440186541.mp4'
+file 'file:C:/Users/mikel/Desktop/physics2-final-video/media/videos/main/1080p60/partial_movie_files/deriveGMe/3040924799_2919340033_923616567.mp4'
