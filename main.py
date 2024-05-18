@@ -76,6 +76,7 @@ class setup(ThreeDScene):
         # self.play(Rotate(rod, angle=PI/4, axis=UP))
         self.wait()
 
+"""
 class deriveG(Scene):
     def construct(self):
         t1 = MathTex(r'\tau_{net} = 0 = F_gL \times -k\theta')
@@ -107,4 +108,52 @@ class deriveG(Scene):
         t6.next_to(t5, DOWN)
         self.play(Create(t6))
         self.wait(2)
+"""
 
+class testArc(Scene):
+    def construct(self):
+
+        """origin = Dot()
+
+        # Reference points along positive axes
+        x_axis_point = Dot(RIGHT)
+        y_axis_point = Dot(UP)
+
+        # Group and position the points
+        reference_points = VGroup(origin, x_axis_point, y_axis_point)
+        reference_points.arrange(RIGHT, buff=0.5)
+
+        self.add(reference_points)"""
+
+        # Create text objects
+        a = Text("a")
+        equals1 = Text("=")
+        b = Text("b")
+        plus = Text("+")
+        c = Text("c")
+        minus = Text("-")
+
+        # Arrange initial equation
+        equation1 = VGroup(a, equals1, b, plus, c).arrange(RIGHT, buff=0.5)
+        equation1.shift(UP * 2)
+
+        # Animate writing of initial equation
+        self.play(Write(equation1))
+        self.wait(1)
+
+        #move a left
+        self.play(a.animate.shift(LEFT))
+        
+        #self.play(c.animate.shift(a.get_right() + RIGHT))
+        path =  ArcBetweenPoints(c.get_center(), a.get_center() + RIGHT * 1, angle=PI/2, stroke_width=8)
+        self.play(MoveAlongPath(c, path), FadeOut(plus), run_time=1)
+        
+        #you have to move the object before fading it in. the FadeIn method only makes the object appear at its position, but its position is already predetermined
+        minus.move_to((a.get_center() + c.get_center())/2)
+        self.play(FadeIn(minus))
+        equation1.add(minus)
+        equation1.remove(plus)
+
+        #equation1.move_to(ORIGIN + UP*2)
+        self.play(equation1.animate.shift(RIGHT + UP))
+        self.wait(1)

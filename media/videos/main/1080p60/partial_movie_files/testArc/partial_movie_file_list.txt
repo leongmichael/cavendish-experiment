@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3529212410_3388273159_223132457.mp4'
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3040924799_3890345977_3158904133.mp4'
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3040924799_2247522571_2001723019.mp4'
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3040924799_2977484202_1143474208.mp4'
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3040924799_1585284234_2652736431.mp4'
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3040924799_890531428_3159539128.mp4'
+file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/testArc/3040924799_1141282389_1763838598.mp4'
