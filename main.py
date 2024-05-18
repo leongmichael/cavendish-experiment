@@ -4,6 +4,21 @@ from manim import *
 config.media_width = "100%"
 config.verbosity = "WARNING"
 
+#This code is to create 3 reference dots that give an idea of the scale of the UP, DOWN, RIGHT, LEFT units
+"""
+origin = Dot()
+
+        # Reference points along positive axes
+        x_axis_point = Dot(RIGHT)
+        y_axis_point = Dot(UP)
+
+        # Group and position the points
+        reference_points = VGroup(origin, x_axis_point, y_axis_point)
+        reference_points.arrange(RIGHT, buff=0.5)
+
+        self.add(reference_points)
+        """
+
 # animation 1
 class displayNewtonsLaws(Scene):
     def construct(self):
@@ -112,18 +127,6 @@ class deriveG(Scene):
 
 class testArc(Scene):
     def construct(self):
-
-        """origin = Dot()
-
-        # Reference points along positive axes
-        x_axis_point = Dot(RIGHT)
-        y_axis_point = Dot(UP)
-
-        # Group and position the points
-        reference_points = VGroup(origin, x_axis_point, y_axis_point)
-        reference_points.arrange(RIGHT, buff=0.5)
-
-        self.add(reference_points)"""
 
         # Create text objects
         a = Text("a")
