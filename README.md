@@ -2,4 +2,4 @@
 
 ## Scripts
 
-```manim main.py [scene] -pqh```
+```manim main.py sceneName -pqh```
