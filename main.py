@@ -42,7 +42,6 @@ class displayNewtonsLaws(Scene):
         test.next_to(newtonUniversalGravitation, DOWN)
         self.play(Create(test))
 
-
 # animation 2
 class deriveGMe(Scene):
     def construct(self):
@@ -126,6 +125,7 @@ class deriveG(Scene):
 """
 
 class testArc(Scene):
+
     def construct(self):
 
         # Create text objects
@@ -160,3 +160,35 @@ class testArc(Scene):
         #equation1.move_to(ORIGIN + UP*2)
         self.play(equation1.animate.shift(RIGHT + UP))
         self.wait(1)
+
+""" broken method
+class FadeInExample(Scene):
+    def construct(self):
+        
+        tex1 = Tex("a", " = ", "b ", " + ",  "c").scale(1)
+        equation1 = VGroup(tex1)
+        self.play(Write(equation1))
+
+        tex2 = Tex("a", " - ", "c ", " = ",  "b").scale(1)
+        equation2 = VGroup(tex2).arrange(RIGHT, buff=0.5)
+        minus = Text(" - ")
+        minus.move_to(LEFT*1.2)
+
+
+        animations = [
+            (tex1[0].animate.shift(tex2[0].get_center()),
+            tex1[1].animate.shift(tex2[3].get_center()),
+            tex1[2].animate.shift(tex2[4].get_center()),
+            MoveAlongPath(tex1[4], ArcBetweenPoints(tex1[4].get_center(), tex2[1].get_center() + LEFT * 0.1, angle=PI/2, stroke_width=8)),
+            FadeOut(tex1[3]),
+
+            FadeIn(minus))
+        ]
+        for a in animations:
+            self.play(a)
+        equation2.add(minus)
+        #self.play(AnimationGroup(*animations, lag_ratio=0.5))
+        self.wait(1)
+        self.play(equation2.animate.shift(UP*2))
+        self.wait(1)
+"""
