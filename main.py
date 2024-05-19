@@ -135,7 +135,7 @@ class deriveG(Scene):
         
         #clean equation t0 to reflect new equation
         t0.remove(t01)
-        self.play(t0.animate.shift(ORIGIN))
+        self.play(t0.animate.shift(RIGHT * 1.4)) #shift equation to the center of the screen
 
         #line 3, 4 combined (merge 2 equations into one effect)
         t2 = MathTex(r" \frac{k\theta}{L}")
@@ -163,8 +163,9 @@ class deriveG(Scene):
 
         #line 5, answer expression
         self.wait(1)
-        t6 = MathTex(r"\frac{(\frac{m_{rod}(L)^2}{12}+2m(\frac{L}{2})^2)(\frac{2\pi}{T})^2\theta r^2}{LMm} \;=\; G")
+        t6 = MathTex(r"G \;=\; \frac{(\frac{m_{rod}(L)^2}{12}+2m(\frac{L}{2})^2)(\frac{2\pi}{T})^2\theta r^2}{LMm}")
         t6.next_to(t5, DOWN*2)
+        t6.shift(RIGHT*1.2) # shift this to the center of the screen
         #t6.move_to(t6.get_center()+LEFT*2)
         self.play(Create(t6, run_time=4))
         self.wait(1)
