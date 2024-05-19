@@ -90,13 +90,23 @@ class setup(ThreeDScene):
         # self.play(Rotate(rod, angle=PI/4, axis=UP))
         self.wait()
 
-"""
 class deriveG(Scene):
     def construct(self):
-        t1 = MathTex(r'\tau_{net} = 0 = F_gL \times -k\theta')
-        t1.shift(UP * 3)
-        self.play(Create(t1))
 
+        
+
+        tau = MathTex(r'\tau_{net}')
+        tau2 = MathTex(r' = F_gL - k\theta')
+        zero = MathTex(r'0')
+        zero.move_to(UP * 3.05 + LEFT * 1.2)
+        t1 = VGroup(tau, tau2).arrange(RIGHT, buff=0.5)
+        self.play(Create(t1))
+        self.play(t1.animate.shift(UP*3))
+        self.play(FadeOut(tau))
+        self.play(FadeIn(zero))
+
+
+        
         self.wait(1)
         t2 = MathTex(r"F_g = \frac{k\theta}{L}")
         t2.next_to(t1, DOWN)
@@ -122,7 +132,6 @@ class deriveG(Scene):
         t6.next_to(t5, DOWN)
         self.play(Create(t6))
         self.wait(2)
-"""
 
 class testArc(Scene):
 
