@@ -118,10 +118,9 @@ class deriveG(Scene):
         self.wait(1)
         self.play(FadeOut(t0, run_time=0.01))
 
-        #tau = MathTex(r'\tau_{net}')
-        #tau2 = MathTex(r' = F_gL - k\theta')
+        #create the "zero" expression for fading in effect
         zero = MathTex(r'0')
-        zero.move_to(UP * 2.85 + LEFT * 2.2)
+        zero.move_to(UP * 2.85 + LEFT * 2.2) #manual movement into proper place
 
         self.play(t0.animate.shift(UP*2.8))
         self.play(FadeOut(t0[0]))
@@ -129,19 +128,16 @@ class deriveG(Scene):
         self.wait(1)
 
         #Line 2 transform Fg = Ktheta/L
-        path =  ArcBetweenPoints(temp_copy.get_center(), zero.get_center()+LEFT*0.5, angle=PI/2, stroke_width=8)
-        #temp_copy.remove(t041n)
-        #self.play(FadeOut(t041n), run_time=0.5)
-        #self.remove(t041n)
+        path =  ArcBetweenPoints(temp_copy.get_center(), zero.get_center()+LEFT*0.5, angle=PI/2, stroke_width=8) #create arcpath, parameters: (start, stop, arc path)
         self.play(FadeOut(temp_copy[0]), run_time=0.3)
         temp_copy.remove(temp_copy[0])
-        self.play(MoveAlongPath(temp_copy, path), FadeOut(zero), run_time=1)
+        self.play(MoveAlongPath(temp_copy, path), FadeOut(zero), run_time=1) #animate movement along path
         
         #clean equation t0 to reflect new equation
         t0.remove(t01)
         self.play(t0.animate.shift(ORIGIN))
 
-        #line 2, 3, 4
+        #line 3, 4 combined (merge 2 equations into one effect)
         t2 = MathTex(r" \frac{k\theta}{L}")
         t3 = MathTex(r"\frac{GMm}{r^2}")
         r_transform = VGroup(t2, MathTex("="), MathTex(r"F_g"), MathTex("="), t3)
@@ -165,6 +161,7 @@ class deriveG(Scene):
         t5.move_to(t5.get_center()+LEFT*1.1)
         self.play(Create(t5))
 
+        #line 5, answer expression
         self.wait(1)
         t6 = MathTex(r"\frac{(\frac{m_{rod}(L)^2}{12}+2m(\frac{L}{2})^2)(\frac{2\pi}{T})^2\theta r^2}{LMm} \;=\; G")
         t6.next_to(t5, DOWN*2)
@@ -172,10 +169,10 @@ class deriveG(Scene):
         self.play(Create(t6, run_time=4))
         self.wait(1)
 
-        #box answer
+        #create box around answer
         box = SurroundingRectangle(t6, color=BLUE, buff=0.3, corner_radius=0.1)
 
-        # Add both the equation and the box to the scene
+        #draw box
         self.add(box, t6)
         self.play(Create(box))
         self.wait(3)
