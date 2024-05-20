@@ -300,3 +300,57 @@ class rotationalIntertiaK(Scene):
         t3.next_to(t2, DOWN*2)
         self.play(Create(t3, run_time = 2))
         self.wait(2)
+
+class intro(Scene):
+    def construct(self):
+        #create line
+        start_point = (-2, 0, 0)  # Adjust coordinates as needed
+        end_point = (2, 0, 0)
+        line = Line(start_point, end_point)
+        arrow_size = 8  # Adjust for desired arrow size
+        arrow = Arrow(
+            end_point - RIGHT * arrow_size / 2,  # Shift starting point left
+            end_point,
+            buff=0,  # No separation between arrow and line
+        )
+        self.play(Create(arrow, run_time=2.5))
+
+        F = Text("F", font_size=400)
+        F.next_to(arrow, DOWN)
+        self.play(Create(F), arrow.animate.shift(UP*3), F.animate.shift(UP*3))
+        self.wait(1)
+
+        vectorF = VGroup(F, arrow)
+        self.play(ScaleInPlace(vectorF, 0.15, run_time=1))
+        self.play(vectorF.animate.shift(UP*1.5))
+        self.wait(1)
+        law2 = Text("Newton's Second Law of Motion", font_size=45)
+        law2.next_to(vectorF, RIGHT)
+        law2.move_to(UP*3.5)
+        t0 = MathTex(' = ma', font_size=70)
+        self.play(vectorF.animate.shift(LEFT))
+        t0.next_to(vectorF, RIGHT)
+        self.play(Create(law2), FadeIn(t0, shift=RIGHT))
+        self.wait(1)
+
+        secondLaw = VGroup(vectorF, t0, law2)
+
+        law1 = Text('Newton\'s First Law (for Rotation)', font_size=45)
+        law1.move_to(law2.get_center()+DOWN*2.5)
+        t1 = Tex('An object at rest remains at rest, or if in motion, remains in motion at a constant velocity unless acted on by a net external force.', font_size = 35)
+        t1.next_to(law1, DOWN)
+        self.play(Create(law1))
+        self.play(Create(t1))
+        self.wait(1)
+
+        law3 = Text('Newton\'s Law of Universal Gravitation', font_size=40)
+        law3.move_to(law1.get_center()+DOWN*2.5)
+        t2 = MathTex(r'F_G = G\frac{m_1m_2}{r^2}')
+        t2.next_to(law3, DOWN*1.5)
+        self.play(Create(law3))
+        self.play(Create(t2))
+        
+        self.wait(2)
+
+
+
