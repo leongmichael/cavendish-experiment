@@ -418,6 +418,43 @@ class gravitation(Scene):
         
         self.wait(2)
         
+# proper ordering:
+    # derive G with k still in the equation
+    # derive k equation rearrange period to k
+    # derive net inertia
+    # plug inertia into k, plug k into G 
+        
+class deriveKFromT(Scene):
+    def construct(self):
+        periodT = MathTex(r'T')
+        periodRest = MathTex(r'= 2\pi \sqrt{\frac{I_{net}}{k}}')
+        periodT.next_to(periodRest, LEFT)
+        self.play(Create(periodT), Create(periodRest))
+        self.wait(1)
+
+        periodTSquared = MathTex(r'T^2')
+        periodRestSquared = MathTex(r'= (2\pi)^2 \frac{I_{net}}{k}')
+        periodTSquared.next_to(periodRestSquared, LEFT)
+        self.play(ReplacementTransform(periodRest, periodRestSquared), ReplacementTransform(periodT, periodTSquared))
+        self.wait(1)
+
+        # Multiplying both sides by k
+        periodTSquaredK = MathTex(r'k T^2')
+        periodRestSquaredK = MathTex(r'= (2\pi)^2 I_{net}')
+        periodTSquaredK.next_to(periodRestSquaredK, LEFT)
+        self.play(ReplacementTransform(periodRestSquared, periodRestSquaredK), ReplacementTransform(periodTSquared, periodTSquaredK))
+        self.wait(1)
+
+        # Dividing both sides by T^2
+        k = MathTex(r'k')
+        kRest = MathTex(r'= I_{net} (\frac{2\pi}{T})^2')
+        k.next_to(kRest, LEFT)
+        self.play(ReplacementTransform(periodTSquaredK, k), ReplacementTransform(periodRestSquaredK, kRest))
+        self.wait(1)
+
+
+
+
 
         
 
