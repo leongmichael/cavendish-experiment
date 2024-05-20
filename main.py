@@ -352,5 +352,72 @@ class intro(Scene):
         
         self.wait(2)
 
+class gravitation(Scene):
+    def construct(self):
+        #create 2 base newton law equations
+        t01 = MathTex(r'F =')
+        t02 = MathTex(r'ma')
+        t0 = VGroup(t01, t02).arrange(RIGHT)
+        t0t = Text("Newton's First Law", font_size=30)
+        t0.move_to(UP*2.5+LEFT*3)
+        t0t.next_to(t0, UP*2.3)
+        t11 = MathTex(r'F_g') 
+        t12 = MathTex(r'= \frac{Gmm}{r^2}') 
+        t1 = VGroup(t11, t12).arrange(RIGHT)
+        t1t = Text("Newton's Law of Gravitation", font_size=30)
+        t1.move_to(UP*2.5+RIGHT*3)
+        t1t.next_to(t1, UP)
+        
+        #fade out text
+        self.play(Create(t0), Create(t0t))
+        self.play(Create(t1), Create(t1t))
+        self.wait(1)
+        self.play(FadeOut(t0t), FadeOut(t1t))
+
+        self.wait(1)
+        
+        #line merge
+        r_transform = VGroup(t01, t02, t11, t12)
+        self.wait(0.5)
+        #animate replacement #1
+        temp1 = MathTex(r"= \frac{GM_{Earth}m}{r_{Earth}^2}")
+        temp_copy1 = temp1.copy().move_to(r_transform[3].get_center())
+        self.play(ReplacementTransform(r_transform[3], temp_copy1), t11.animate.shift(LEFT*0.6))
+        r_transform.add(temp_copy1)
+        r_transform.remove(t12)
+        self.wait(1)
+
+        # The mobs replace each other and none are left behind
+        self.play(FadeOut(r_transform[0]), FadeOut(r_transform[2]))
+        self.play(r_transform[1].animate.shift(RIGHT*1.5), r_transform[3].animate.shift(LEFT*2.2))
+        r_transform.remove(r_transform[0])
+        r_transform.remove(r_transform[2])
+
+        self.wait(1)
+
+        t2 = MathTex(r"r_{Earth}^2g= GM_{Earth}")
+        t2.next_to(r_transform, DOWN)
+        t2.move_to(UP*0.3)
+        self.play(Create(t2))
+        self.wait(1)
+        box = SurroundingRectangle(t2, color=BLUE, buff=0.3, corner_radius=0.1)
+        #draw box
+        self.add(box, t2)
+        self.play(Create(box))
+        self.wait(1)
+
+        t3 = MathTex(r'\text{Where,}\: r_{Earth} = 61378.1\: \text{kilometers}')
+        t3.next_to(t2, DOWN)
+        t3.move_to(DOWN)
+        t4 = MathTex(r'g=9.8m/s^2')
+        t4.next_to(t3, DOWN)
+        t4.move_to(DOWN*1.7+RIGHT*0.3)
+        self.play(Create(t3))
+        self.play(Create(t4))
+        
+        self.wait(2)
+        
+
+        
 
 
