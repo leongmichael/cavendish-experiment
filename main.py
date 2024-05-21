@@ -19,7 +19,6 @@ origin = Dot()
         self.add(reference_points)
         """
 
-# animation 1
 class displayNewtonsLaws(Scene):
     def construct(self):
         newtonSecondLaw = MathTex(r"F=ma")
@@ -42,7 +41,6 @@ class displayNewtonsLaws(Scene):
         test.next_to(newtonUniversalGravitation, DOWN)
         self.play(Create(test))
 
-# animation 2
 class deriveGMe(Scene):
     def construct(self):
         newtonSecondLaw = MathTex(r"F=mg")
@@ -418,11 +416,7 @@ class gravitation(Scene):
         
         self.wait(2)
         
-# proper ordering:
-    # derive G with k still in the equation
-    # derive k equation rearrange period to k
-    # derive net inertia
-    # plug inertia into k, plug k into G 
+
         
 class deriveKFromT(Scene):
     def construct(self):
