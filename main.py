@@ -493,6 +493,14 @@ class deriveKFromT(Scene):
         self.play(ReplacementTransform(k0, k), ReplacementTransform(kRest0, kRest))
         self.wait(2)
 
+class cavendishExperimentText(Scene):
+    def construct(self):
+        cavendishExperiment = Text("Cavendish Experiment", font_size=45)
+        cavendishExperiment.move_to(UP*3)
+        self.play(Create(cavendishExperiment))
+        self.wait(30)
+
+
 
 
 
