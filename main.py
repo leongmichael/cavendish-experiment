@@ -69,17 +69,29 @@ class setup(ThreeDScene):
     def construct(self):
         
         rod = Cylinder(radius = 0.15, height = 8, direction=DOWN)
+        rod.set_fill(color=GOLD)
 
         brass1 = Sphere(radius = 0.5)
         brass2 = Sphere(radius = 0.5)
+        brass1.set_fill(color=GOLD)
+        brass2.set_fill(color=GOLD)
         brass1.next_to(rod, DOWN, buff=0)
         brass2.next_to(rod, UP, buff=0)
 
         rope = Cylinder(radius = 0.05, height = 8, direction=RIGHT)
+        rope.set_fill(color=GRAY)
         rope.next_to(rod, RIGHT, buff=0)
 
 
-        group = VGroup(rod, brass1, brass2)
+        group = VGroup(rod, brass1, brass2, rope)
+
+        angle = PI/12
+
+        line = Line(start=10 * DOWN, end=10 * UP, stroke_width=0.3) # 0 
+        line2 = Line(start=10 * DOWN, end=10 * UP, stroke_width=0.3) # 1
+        line2.rotate(angle + 8 * DEGREES, about_point=ORIGIN)
+        line3 = Line(start=10 * DOWN, end=10 * UP, stroke_width=0.3) # 2
+        line3.rotate(-(angle + 8 * DEGREES), about_point=ORIGIN)
         
         # Set up the camera orientation
         # phi is up, theta is left/right
@@ -89,10 +101,13 @@ class setup(ThreeDScene):
         self.camera.focal_distance = 10
 
                 
-        self.play(Create(group), Create(rope))
+        self.play(Create(group), Create(line), Create(line2), Create(line3))
+        self.play(Rotate(group, angle=angle, axis=RIGHT, about_point=group.get_center()), run_time=2)
+        self.play(Rotate(group, angle=-2 * angle, axis=RIGHT, about_point=group.get_center()), run_time=2)
+        self.play(Rotate(group, angle=2 * angle, axis=RIGHT, about_point=group.get_center()), run_time=2)
+        self.play(Rotate(group, angle=-2 * angle, axis=RIGHT, about_point=group.get_center()), run_time=2)
 
-        self.play(Rotate(group, angle=PI/6, axis=RIGHT, about_point=group.get_center()), run_time=2)
-        self.play(Rotate(group, angle=-2 * PI/6, axis=RIGHT, about_point=group.get_center()), run_time=2)
+
 
 class deriveG(Scene):
     def construct(self):
