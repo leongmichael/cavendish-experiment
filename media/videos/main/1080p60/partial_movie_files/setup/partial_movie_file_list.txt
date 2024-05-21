@@ -1,7 +1,4 @@
 # This file is used internally by FFMPEG.
-file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/3492670201_3179575787_223132457.mp4'
-file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/3759006649_3438219438_50493612.mp4'
-file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/3759006649_3395999172_2630932500.mp4'
-file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/3759006649_3438219438_175979222.mp4'
-file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/3759006649_2922657120_1701133255.mp4'
-file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/3759006649_2304249630_1389645642.mp4'
+file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/2213795358_3483340473_223132457.mp4'
+file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/2435666552_2501335502_1485534641.mp4'
+file 'file:/Users/michaelleong/Desktop/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/setup/2435666552_2119962053_1485534641.mp4'

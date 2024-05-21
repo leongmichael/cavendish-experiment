@@ -68,27 +68,31 @@ class deriveGMe(Scene):
 class setup(ThreeDScene):
     def construct(self):
         
-        # Create a 3D cube
-        rod = Cylinder(radius = 0.25, height = 8, direction=DOWN)
-        brass1 = Sphere(radius = 0.75)
-        brass2 = Sphere(radius = 0.75)
+        rod = Cylinder(radius = 0.15, height = 8, direction=DOWN)
+
+        brass1 = Sphere(radius = 0.5)
+        brass2 = Sphere(radius = 0.5)
         brass1.next_to(rod, DOWN, buff=0)
         brass2.next_to(rod, UP, buff=0)
+
+        rope = Cylinder(radius = 0.05, height = 8, direction=RIGHT)
+        rope.next_to(rod, RIGHT, buff=0)
+
+
+        group = VGroup(rod, brass1, brass2)
         
         # Set up the camera orientation
-        self.set_camera_orientation(phi=0 * DEGREES, theta=0 * DEGREES)
+        # phi is up, theta is left/right
+        self.set_camera_orientation(phi=120 * DEGREES, theta=0 * DEGREES)
 
         # Set the focal length to zoom out (higher focal length = zoom out)
         self.camera.focal_distance = 10
 
                 
-        self.play(Create(rod))
-        self.wait(1)
-        self.play(Create(brass1))
-        self.wait(1)
-        self.play(Create(brass2))
-        # self.play(Rotate(rod, angle=PI/4, axis=UP))
-        self.wait()
+        self.play(Create(group), Create(rope))
+
+        self.play(Rotate(group, angle=PI/6, axis=RIGHT, about_point=group.get_center()), run_time=2)
+        self.play(Rotate(group, angle=-2 * PI/6, axis=RIGHT, about_point=group.get_center()), run_time=2)
 
 class deriveG(Scene):
     def construct(self):
