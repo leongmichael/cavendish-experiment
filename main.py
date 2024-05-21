@@ -99,7 +99,7 @@ class deriveG(Scene):
         t042 = MathTex(r'\tau_{wire}')
         t04 = VGroup(t041, t042).arrange(RIGHT, buff =0.5)
         t0 = VGroup(t01, t02, t03, t04).arrange(RIGHT, buff = 0.2)
-        self.play(Create(t0))
+        self.play(Create(t0, run_time=3))
         self.wait(1)
         temp1 = MathTex(r'2(F_g\frac{L}{2})')
         temp_copy = temp1.copy().move_to(t0[2].get_center())
@@ -443,11 +443,18 @@ class deriveKFromT(Scene):
         self.wait(1)
 
         # Dividing both sides by T^2
-        k = MathTex(r'k')
-        kRest = MathTex(r'= I_{net} (\frac{2\pi}{T})^2')
-        k.next_to(kRest, LEFT)
-        self.play(ReplacementTransform(periodTSquaredK, k), ReplacementTransform(periodRestSquaredK, kRest))
+        k0 = MathTex(r'k')
+        kRest0 = MathTex(r'= \frac{(2\pi)^2 I_{net}}{T^2}')
+        k0.next_to(kRest0, LEFT)
+        self.play(ReplacementTransform(periodTSquaredK, k0), ReplacementTransform(periodRestSquaredK, kRest0))
         self.wait(1)
+
+
+        k = MathTex(r'k')
+        kRest = MathTex(r'=  (\frac{2\pi}{T})^2I_{net}')
+        k.next_to(kRest, LEFT)
+        self.play(ReplacementTransform(k0, k), ReplacementTransform(kRest0, kRest))
+        self.wait(2)
 
 
 
