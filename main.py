@@ -100,8 +100,12 @@ class deriveG(Scene):
         t04 = VGroup(t041, t042).arrange(RIGHT, buff =0.5)
         t0 = VGroup(t01, t02, t03, t04).arrange(RIGHT, buff = 0.2)
         self.play(Create(t0))
-        self.wait(0.5)
+        self.wait(1)
+        temp1 = MathTex(r'2(F_g\frac{L}{2})')
+        temp_copy = temp1.copy().move_to(t0[2].get_center())
+        self.play(ReplacementTransform(t0[2], temp_copy))
         temp1 = MathTex(r'F_gL')
+        self.wait(1)
         temp_copy = temp1.copy().move_to(t0[2].get_center())
         self.play(ReplacementTransform(t0[2], temp_copy))
         self.wait(0.5)
@@ -416,7 +420,6 @@ class gravitation(Scene):
         
         self.wait(2)
         
-
         
 class deriveKFromT(Scene):
     def construct(self):
