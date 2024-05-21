@@ -304,6 +304,13 @@ class rotationalIntertiaK(Scene):
         self.play(Create(t3, run_time = 2))
         self.wait(2)
 
+        box = SurroundingRectangle(t3, color=BLUE, buff=0.3, corner_radius=0.1)
+
+        #draw box
+        self.add(box, t3)
+        self.play(Create(box))
+        self.wait(1)
+
 class intro(Scene):
     def construct(self):
         #create line
