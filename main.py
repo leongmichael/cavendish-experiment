@@ -379,7 +379,7 @@ class intro(Scene):
         self.play(Create(law3))
         self.play(Create(t2))
         
-        self.wait(2)
+        self.wait(15)
 
 class gravitation(Scene):
     def construct(self):
@@ -414,11 +414,21 @@ class gravitation(Scene):
         self.play(ReplacementTransform(r_transform[3], temp_copy1), t11.animate.shift(LEFT*0.6))
         r_transform.add(temp_copy1)
         r_transform.remove(t12)
-        self.wait(1)
+        self.wait(10)
 
+        # animate f = ma -> f = mg
+        temp2 = MathTex(r"mg")
+        temp_copy2 = temp2.copy().move_to(r_transform[1].get_center())
+        self.play(ReplacementTransform(r_transform[1], temp_copy2))
+        r_transform.add(temp_copy2)
+        r_transform.remove(t02)
+        self.wait(10)
+
+
+        # TODO: find better wya to animmate this. the current method of shifting the text by the index numebr is not ideal because the indexes get shifted as well from the method above
         # The mobs replace each other and none are left behind
-        self.play(FadeOut(r_transform[0]), FadeOut(r_transform[2]))
-        self.play(r_transform[1].animate.shift(RIGHT*1.5), r_transform[3].animate.shift(LEFT*2.2))
+        self.play(FadeOut(r_transform[0]), FadeOut(r_transform[1]))
+        self.play(r_transform[3].animate.shift(RIGHT*1.5), r_transform[2].animate.shift(LEFT*2.2))
         r_transform.remove(r_transform[0])
         r_transform.remove(r_transform[2])
 
@@ -433,7 +443,7 @@ class gravitation(Scene):
         #draw box
         self.add(box, t2)
         self.play(Create(box))
-        self.wait(1)
+        self.wait(10)
 
         t3 = MathTex(r'\text{Where,}\: r_{Earth} = 61378.1\: \text{kilometers}')
         t3.next_to(t2, DOWN)
@@ -442,9 +452,10 @@ class gravitation(Scene):
         t4.next_to(t3, DOWN)
         t4.move_to(DOWN*1.7+RIGHT*0.3)
         self.play(Create(t3))
+        self.wait(12)
         self.play(Create(t4))
         
-        self.wait(2)
+        self.wait(30)
         
         
 class deriveKFromT(Scene):
