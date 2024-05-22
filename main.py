@@ -199,6 +199,90 @@ class deriveG(Scene):
         self.play(Create(box))
         self.wait(3)
 
+
+class deriveGWithK(Scene):
+    def construct(self):
+
+        #Line 1 0 = FgL - ktheta
+        t01 = MathTex(r'\tau_{net}')
+        t02 = MathTex(r'=')
+        t03 = MathTex(r'\tau_{gravity}')
+        t041 = MathTex(r'+')
+        t042 = MathTex(r'\tau_{wire}')
+        t04 = VGroup(t041, t042).arrange(RIGHT, buff =0.5)
+        t0 = VGroup(t01, t02, t03, t04).arrange(RIGHT, buff = 0.2)
+        self.play(Create(t0, run_time=3))
+        self.wait(10) 
+        temp1 = MathTex(r'2(F_g\frac{L}{2})')
+        temp_copy = temp1.copy().move_to(t0[2].get_center())
+        self.play(ReplacementTransform(t0[2], temp_copy))
+        self.wait(11)
+        temp1 = MathTex(r'F_gL')
+        temp_copy = temp1.copy().move_to(t0[2].get_center())
+        self.play(ReplacementTransform(t0[2], temp_copy))
+        self.wait(1)
+        t041n = MathTex(r'-')
+        t042n = MathTex(r'k\theta')
+        temp2 = VGroup(t041n, t042n).arrange(RIGHT, buff=0.5)
+        # Create a temporary copy with the same position (idk why this works)
+        temp_copy = temp2.copy().move_to(t0[3].get_center())
+        # Perform replacement and remove the copy
+        self.play(ReplacementTransform(t0[3], temp_copy),)
+        t0.add(temp_copy)
+        self.wait(1)
+        self.play(FadeOut(t0, run_time=0.01))
+
+        #create the "zero" expression for fading in effect
+        zero = MathTex(r'0')
+        zero.move_to(UP * 2.85 + LEFT * 2.2) #manual movement into proper place
+
+        self.play(t0.animate.shift(UP*2.8)) #animate shift
+        self.play(FadeOut(t0[0]))
+        self.play(FadeIn(zero))
+        self.wait(10)
+
+        #Line 2 transform Fg = Ktheta/L
+        path =  ArcBetweenPoints(temp_copy.get_center(), zero.get_center()+LEFT*0.5, angle=PI/2, stroke_width=8) #create arcpath, parameters: (start, stop, arc path)
+        self.play(FadeOut(temp_copy[0]), run_time=0.3)
+        temp_copy.remove(temp_copy[0])
+        self.play(MoveAlongPath(temp_copy, path), FadeOut(zero), run_time=1) #animate movement along path
+        
+        #clean equation t0 to reflect new equation
+        t0.remove(t01)
+        self.play(t0.animate.shift(RIGHT * 1.4)) #shift equation to the center of the screen
+
+        #line 3, 4 combined (merge 2 equations into one effect)
+        t2 = MathTex(r" \frac{k\theta}{L}")
+        t3 = MathTex(r"\frac{GMm}{r^2}")
+        r_transform = VGroup(t2, MathTex("="), MathTex(r"F_g"), MathTex("="), t3)
+        r_transform.arrange(direction=RIGHT, buff=1)
+        r_transform.next_to(t0, DOWN*1.2)
+        r_transform.move_to(r_transform.get_center()+RIGHT*1.85)
+        self.play(Create(r_transform[:3]))
+        self.wait(1)
+        self.play(Create(r_transform[3:]))
+        self.wait(11)
+
+        # The mobs replace each other and none are left behind
+        self.play(FadeOut(r_transform[2]), FadeOut(r_transform[3]))
+        self.play(r_transform[4].animate.shift(LEFT*3))
+        r_transform.remove(r_transform[2])
+        r_transform.remove(r_transform[3])
+
+        self.wait(1)
+        t5 = MathTex(r"\frac{k\theta r^2}{LMm} \;=\; G")
+        t5.next_to(r_transform, DOWN*1.5)
+        t5.move_to(t5.get_center()+LEFT*1.1)
+        self.play(Create(t5))
+
+        #create box around answer
+        box = SurroundingRectangle(t5, color=BLUE, buff=0.3, corner_radius=0.1)
+
+        #draw box
+        self.add(box, t5)
+        self.play(Create(box))
+        self.wait(10)
+
 class testArc(Scene):
 
     def construct(self):
