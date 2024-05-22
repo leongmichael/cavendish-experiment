@@ -183,7 +183,7 @@ class deriveG(Scene):
         self.play(Create(t5))
 
         #line 5, answer expression
-        self.wait(1)
+        self.wait(10)
         t6 = MathTex(r"G \;=\; \frac{(\frac{m_{rod}(L)^2}{12}+2m(\frac{L}{2})^2)(\frac{2\pi}{T})^2\theta r^2}{LMm}")
         t6.next_to(t5, DOWN*2)
         t6.shift(RIGHT*1.2) # shift this to the center of the screen
@@ -197,7 +197,7 @@ class deriveG(Scene):
         #draw box
         self.add(box, t6)
         self.play(Create(box))
-        self.wait(3)
+        self.wait(20)
 
 
 class deriveGWithK(Scene):
@@ -339,16 +339,16 @@ class testCombine(Scene):
 
 class rotationalIntertiaK(Scene):
     def construct(self):
-        #animate first line k <- torsion constant
-        k = Text("k")
-        text = Text("<- torsion constant")
-        text.move_to(RIGHT)
-        self.play(Create(k))
-        self.wait(0.5)
-        self.play(k.animate.shift(LEFT*2.5))
-        self.play(FadeIn(text, shift=RIGHT))
-        self.wait(2)
-        self.play(FadeOut(k), FadeOut(text))
+        # #animate first line k <- torsion constant
+        # k = Text("k")
+        # text = Text("<- torsion constant")
+        # text.move_to(RIGHT)
+        # self.play(Create(k))
+        # self.wait(0.5)
+        # self.play(k.animate.shift(LEFT*2.5))
+        # self.play(FadeIn(text, shift=RIGHT))
+        # self.wait(2)
+        # self.play(FadeOut(k), FadeOut(text))
 
         #create inertia equation
         t01 = MathTex(r'I_{net}')
@@ -360,18 +360,18 @@ class rotationalIntertiaK(Scene):
         t07 = MathTex(r'I_{rotating\,rod}')
         t0 = VGroup(t01, t02, t03, t04, t05, t06, t07).arrange(RIGHT, buff = 0.2)
         self.play(Create(t0)) #animate original equation
-        self.wait(0.5)
+        self.wait(10)
         #animate replacement #1
         temp1 = MathTex(r'm(\frac{L}{2})^2')
         temp_copy1 = temp1.copy().move_to(t0[2].get_center())
         temp_copy2 = temp1.copy().move_to(t0[4].get_center())
         self.play(ReplacementTransform(t0[2], temp_copy1), ReplacementTransform(t0[4], temp_copy2))
-        self.wait(1)
+        self.wait(7)
         #animate replacement #2
         temp1 = MathTex(r'\frac{m_{rod}(L)^2}{12}')
         temp_copy3 = temp1.copy().move_to(t0[6].get_center())
         self.play(ReplacementTransform(t0[6], temp_copy3))
-        self.wait(1)
+        self.wait(18)
         
         #combine 
         t3 = MathTex(r"\frac{GMm}{r^2}")
