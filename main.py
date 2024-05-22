@@ -584,6 +584,12 @@ class cavendishExperimentText(Scene):
         self.play(Create(cavendishExperiment))
         self.wait(30)
 
+class hookesLaw(Scene):
+    def construct(self):
+        hookeslaw = MathTex(r'\tau = -k\theta')
+        self.play(Create(hookeslaw))
+        self.wait(10)
+
 
 
 
