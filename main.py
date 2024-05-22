@@ -548,7 +548,7 @@ class deriveKFromT(Scene):
         periodRest = MathTex(r'= 2\pi \sqrt{\frac{I_{net}}{k}}')
         periodT.next_to(periodRest, LEFT)
         self.play(Create(periodT), Create(periodRest))
-        self.wait(1)
+        self.wait(15)
 
         periodTSquared = MathTex(r'T^2')
         periodRestSquared = MathTex(r'= (2\pi)^2 \frac{I_{net}}{k}')
@@ -575,7 +575,16 @@ class deriveKFromT(Scene):
         kRest = MathTex(r'=  (\frac{2\pi}{T})^2I_{net}')
         k.next_to(kRest, LEFT)
         self.play(ReplacementTransform(k0, k), ReplacementTransform(kRest0, kRest))
-        self.wait(2)
+
+        group = VGroup(k, kRest)
+
+        #create box around answer
+        box = SurroundingRectangle(group, color=BLUE, buff=0.3, corner_radius=0.1)
+
+        #draw box
+        self.add(box, group)
+        self.play(Create(box))
+        self.wait(20)
 
 class cavendishExperimentText(Scene):
     def construct(self):
