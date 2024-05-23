@@ -19,49 +19,6 @@ origin = Dot()
         self.add(reference_points)
         """
 
-class displayNewtonsLaws(Scene):
-    def construct(self):
-        newtonSecondLaw = MathTex(r"F=ma")
-        newtonSecondLaw.shift(UP * 1.5)
-        self.play(Create(newtonSecondLaw))
-
-        self.wait(2)
-        newtonLawRotationalMotion = MathTex(r"\tau=rf")
-        newtonLawRotationalMotion.next_to(newtonSecondLaw, DOWN)
-        self.play(Create(newtonLawRotationalMotion))
-
-        self.wait(2)
-        newtonUniversalGravitation = MathTex(r"F=G\frac{m_1m_2}{r^2}")
-        newtonUniversalGravitation.next_to(newtonLawRotationalMotion, DOWN)
-        self.play(Create(newtonUniversalGravitation))
-
-        #experimental
-        self.wait(2)
-        test = MathTex(r"F=G\frac{m_1m_2}{rrrrr}")
-        test.next_to(newtonUniversalGravitation, DOWN)
-        self.play(Create(test))
-
-class deriveGMe(Scene):
-    def construct(self):
-        newtonSecondLaw = MathTex(r"F=mg")
-        newtonSecondLaw.shift(UP * 1.5)
-        self.play(Create(newtonSecondLaw))
-        self.wait(2)
-        newtonUniversalGravitation = MathTex(r"F=G\frac{m_{earth}m}{r_{earth}^2}")
-        newtonUniversalGravitation.next_to(newtonSecondLaw, DOWN)
-        self.play(Create(newtonUniversalGravitation))
-        self.wait(2)
-
-        self.play(FadeOut(newtonSecondLaw), FadeOut(newtonUniversalGravitation))
-        self.wait(1)
-
-        equate = MathTex(r"mg=G\frac{m_{earth}m}{r_{earth}^2}")
-        self.play(Create(equate))
-        self.wait(2)
-
-        solveForGMe = MathTex(r"G{m_{earth}={r_{earth}^2}g")
-        self.play(TransformMatchingTex(equate, solveForGMe))
-        self.wait(1)
 
 class setup(ThreeDScene):
     def construct(self):
@@ -339,16 +296,16 @@ class testCombine(Scene):
 
 class rotationalIntertiaK(Scene):
     def construct(self):
-        # #animate first line k <- torsion constant
-        # k = Text("k")
-        # text = Text("<- torsion constant")
-        # text.move_to(RIGHT)
-        # self.play(Create(k))
-        # self.wait(0.5)
-        # self.play(k.animate.shift(LEFT*2.5))
-        # self.play(FadeIn(text, shift=RIGHT))
-        # self.wait(2)
-        # self.play(FadeOut(k), FadeOut(text))
+        #animate first line k <- torsion constant
+        k = Text("k")
+        text = Text("<- torsion constant")
+        text.move_to(RIGHT)
+        self.play(Create(k))
+        self.wait(0.5)
+        self.play(k.animate.shift(LEFT*2.5))
+        self.play(FadeIn(text, shift=RIGHT))
+        self.wait(2)
+        self.play(FadeOut(k), FadeOut(text))
 
         #create inertia equation
         t01 = MathTex(r'I_{net}')
