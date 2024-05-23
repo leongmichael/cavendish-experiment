@@ -335,7 +335,7 @@ class setup(ThreeDScene):
         self.play(Rotate(group, angle=-2 * angle, axis=RIGHT, about_point=group.get_center()), run_time=2)
 
 # derive K from net rotational inertia
-class rotationalIntertiaK(Scene):
+class rotationalInertiaK(Scene):
     def construct(self):
         #animate first line k <- torsion constant
         k = Text("k")
