@@ -1,8 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3529212410_1714622989_223132457.mp4'
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_1141282389_3408638287.mp4'
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_3342668308_927483390.mp4'
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_1141282389_4018078218.mp4'
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_3955720899_2396197708.mp4'
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_1141282389_1951094362.mp4'
-file 'file:D:/3B1B Animation/CavendishExperimentProject/media/videos/main/1080p60/partial_movie_files/displayNewtonsLaws/3040924799_3892378896_2151337366.mp4'
